@@ -4,7 +4,7 @@
 "" Flags and remappings {{{
 0
 " Default Color Scheme
-" colorscheme badwolf
+colorscheme desert
 
 "Enable syntax processing
 syntax enable
