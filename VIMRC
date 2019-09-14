@@ -1,0 +1,92 @@
+" VIMRC!!!
+" Author: Yash Bharatula
+
+"" Flags and remappings {{{
+0
+" Default Color Scheme
+" colorscheme badwolf
+
+"Enable syntax processing
+syntax enable
+
+" leader is comma ','
+let mapleader=","
+
+" Visual spaces per TAB
+set tabstop=4
+
+" Number of spaces in tab when editing
+set softtabstop=4
+
+" tabs = spaces
+set expandtab
+
+" Enable line numbers
+set number
+
+" show command in bottom bar
+set showcmd
+
+" highlight current line
+set cursorline
+
+" visual autocomple for command menu
+set wildmenu
+
+" redraw only when we need to.
+set lazyredraw
+
+" highlight matching [{()}]
+set showmatch
+
+" search as characters are entered
+set incsearch
+
+" highlight matches
+set hlsearch
+
+" turn off search highlight ( ,<space> )
+nnoremap <leader><space> :nohlsearch<CR>
+
+" Enable folding
+set foldenable
+
+" Open most folds by default
+set foldlevelstart=10
+
+" 10 nested fold max
+set foldnestmax=10
+
+" space open/closes folds
+nnoremap <space> za
+
+" fold based on indent level
+set foldmethod=indent
+
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+
+" highlight last inserted text
+nnoremap gV `[v`]
+
+" Source vimrc
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
+" save session (saves assortment of windows) (reopen with vim -S)
+nnoremap <leader>s :mksession<CR>
+
+" }}}
+"" Functions {{{
+1
+" toggle between number and relativenumber
+function! ToggleNumber()
+    if(&relativenumber == 1)
+        set norelativenumber
+        set number
+    else
+        set relativenumber
+    endif
+endfunc
+" }}}
+"" vim:foldmethod=marker:foldlevel=0
