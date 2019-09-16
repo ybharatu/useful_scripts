@@ -1,17 +1,14 @@
 " VIMRC!!!
 " Author: Yash Bharatula
 
-"" Flags and remappings {{{
-0
-" Default Color Scheme
-" colorscheme molokai
-
+"" 1.  Syntax and Leader {{{
 "Enable syntax processing
 syntax enable
 
 " leader is comma ','
 let mapleader=","
-
+" }}}
+"" 2.  Spacing {{{
 " Visual spaces per TAB
 set tabstop=4
 
@@ -20,7 +17,8 @@ set softtabstop=4
 
 " tabs = spaces
 set expandtab
-
+" }}}
+"" 3.  UI Config {{{
 " Enable line numbers
 set number
 
@@ -38,7 +36,8 @@ set lazyredraw
 
 " highlight matching [{()}]
 set showmatch
-
+" }}}
+"" 4.  Searching {{{
 " search as characters are entered
 set incsearch
 
@@ -47,7 +46,8 @@ set hlsearch
 
 " turn off search highlight ( ,<space> )
 nnoremap <leader><space> :nohlsearch<CR>
-
+" }}}
+"" 5.  Folding {{{
 " Enable folding
 set foldenable
 
@@ -62,28 +62,30 @@ nnoremap <space> za
 
 " fold based on indent level
 set foldmethod=indent
-
+" }}}
+"" 6.  Movement {{{
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
 
 " highlight last inserted text
 nnoremap gV `[v`]
-
+" }}}
+"" 7.  Leader Shortcuts {{{
 " Source vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " save session (saves assortment of windows) (reopen with vim -S)
 nnoremap <leader>s :mksession<CR>
-
+" }}}
+"" 8.  Vim Tabs {{{
 " Tab navigation remaps
 map <leader>k :tabr<cr>
 map <leader>j :tabl<cr>
 map <leader>h :tabp<cr>
 map <leader>l :tabn<cr>
-
 " }}}
-"" Functions {{{
+"" 9.  Functions {{{
 1
 " toggle between number and relativenumber
 function! ToggleNumber()
@@ -94,9 +96,8 @@ function! ToggleNumber()
         set relativenumber
     endif
 endfunc
-
 " }}}
-"" Processes {{{
+"" 10. Color {{{
 let b = expand("%:t")
 
 if b =~ '.*vimrc'
@@ -106,6 +107,6 @@ elseif b =~ '.*.sv'
 else
     colorscheme molokai
 endif  
-
 " }}}
+
 "" vim:foldmethod=marker:foldlevel=0
