@@ -36,6 +36,10 @@ set lazyredraw
 
 " highlight matching [{()}]
 set showmatch
+
+" Turn on / off line numbers
+nmap sn :set number!<CR>
+"nmap hn :set nonumber<CR> 
 " }}}
 "" 4.  Searching {{{
 " search as characters are entered
