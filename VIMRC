@@ -76,6 +76,12 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 " save session (saves assortment of windows) (reopen with vim -S)
 nnoremap <leader>s :mksession<CR>
 
+" Tab navigation remaps
+map <leader>k :tabr<cr>
+map <leader>j :tabl<cr>
+map <leader>h :tabp<cr>
+map <leader>l :tabn<cr>
+
 " }}}
 "" Functions {{{
 1
