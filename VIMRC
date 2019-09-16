@@ -4,7 +4,7 @@
 "" Flags and remappings {{{
 0
 " Default Color Scheme
-colorscheme desert
+" colorscheme molokai
 
 "Enable syntax processing
 syntax enable
@@ -88,5 +88,18 @@ function! ToggleNumber()
         set relativenumber
     endif
 endfunc
+
+" }}}
+"" Processes {{{
+let b = expand("%:t")
+
+if b =~ '.*vimrc'
+    colorscheme blue
+elseif b =~ '.*.sv'
+    colorscheme default
+else
+    colorscheme molokai
+endif  
+
 " }}}
 "" vim:foldmethod=marker:foldlevel=0
