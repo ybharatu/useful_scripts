@@ -115,6 +115,9 @@ endif
 " Special color highlighting
 highlight error2 ctermbg=Red guibg=Red 
 autocmd BufEnter * syntax match error2 /[Ee][Rr][Rr][Oo][Rr]:/
+
+highlight warning2 ctermbg=Yellow ctermfg=Black guibg=Yellow guifg=Black                                                                                                                                                                                                   
+autocmd BufEnter * syntax match warning2 /[Ww][Aa][Rr][Nn][Ii][Nn][Gg]:/
 " }}}
 
 "" vim:foldmethod=marker:foldlevel=0
