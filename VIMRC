@@ -88,6 +88,17 @@ map <leader>k :tabr<cr>
 map <leader>j :tabl<cr>
 map <leader>h :tabp<cr>
 map <leader>l :tabn<cr>
+
+" lhs comments -- select a range then hit ,# to insert hash comments                                                                                                                      
+" or ,/ for // comments, or ,c to clear comments.
+map <leader># :s/^/#/<CR> <Esc>:nohlsearch <CR>
+map <leader>/ :s/^/\/\//<CR> <Esc>:nohlsearch <CR>
+map <leader>c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR> <Esc>:nohlsearch<CR>
+
+" wrapping comments -- select a range then hit ,* to put  /* */ around
+" selection, or ,d to clear them
+map <leader>* :s/^\(.*\)$/\/\* \1 \*\//<CR> <Esc>:nohlsearch<CR>
+map <leader>d :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR> <Esc>:nohlsearch<CR>
 " }}}
 "" 9.  Functions {{{
 1
