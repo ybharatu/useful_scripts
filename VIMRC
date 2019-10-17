@@ -82,6 +82,9 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 " save session (saves assortment of windows) (reopen with vim -S)
 nnoremap <leader>s :mksession<CR>
 
+" force save session
+nnoremap <leader>s! :mksession<CR>
+
 " lhs comments -- select a range then hit ,# to insert hash comments                                                                                                                      
 " or ,/ for // comments, or ,c to clear comments.
 "map <leader># :s/^/#/<CR> <Esc>:nohlsearch <CR>
