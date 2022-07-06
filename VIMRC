@@ -1,4 +1,4 @@
-" VIMRC!!!
+" VIMRC !!!
 " Author: Yash Bharatula
 
 "" 1.  Syntax and Leader {{{
@@ -37,9 +37,16 @@ set lazyredraw
 " highlight matching [{()}]
 set showmatch
 
-" Turn on / off line numbers
-nmap sn :set number!<CR>
-"nmap hn :set nonumber<CR> 
+"shortcuts to turn line numbers on and off
+nmap hn :set nonumber<CR>
+nmap sn :set number<CR>
+
+" Avoid wrapping a line in the middle of a word
+set linebreak
+
+" Number of screen lines to keep above and below the cursor
+set scrolloff=1
+
 " }}}
 "" 4.  Searching {{{
 " search as characters are entered
@@ -50,6 +57,13 @@ set hlsearch
 
 " turn off search highlight ( ,<space> )
 nnoremap <leader><space> :nohlsearch<CR>
+
+" Ignore case when searching
+set ignorecase
+
+" Search for error
+"nnoremap <leader>er
+
 " }}}
 "" 5.  Folding {{{
 " Enable folding
@@ -74,6 +88,7 @@ nnoremap k gk
 
 " highlight last inserted text
 nnoremap gV `[v`]
+
 " }}}
 "" 7.  Leader Shortcuts {{{
 " Source vimrc
@@ -83,19 +98,27 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>s :mksession<CR>
 
 " force save session
-nnoremap <leader>s! :mksession<CR>
+nnoremap <leader>s! :mksession!<CR>
 
-" lhs comments -- select a range then hit ,# to insert hash comments                                                                                                                      
+" Split window and open integrated file explorer
+nnoremap <leader>e :Sex
+
+" Same as above but vertically Split
+nnoremap <leader>e! :Sex!
+
+" lhs comments -- select a range then hit ,# to insert hash comments                                                                                                                                                                                               
 " or ,/ for // comments, or ,c to clear comments.
-"map <leader># :s/^/#/<CR> <Esc>:nohlsearch <CR>
-map <leader># :s/^/#/<CR> :nohlsearch <CR> 
-map <leader>/ :s/^/\/\//<CR> :nohlsearch <CR>
-map <leader>c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR> :nohlsearch<CR>
+map ,# :s/^/#/<CR> <Esc>:nohlsearch <CR>
+map ,/ :s/^/\/\//<CR> <Esc>:nohlsearch <CR>
+map ,c :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR> <Esc>:nohlsearch<CR>
 
 " wrapping comments -- select a range then hit ,* to put  /* */ around
 " selection, or ,d to clear them
-map <leader>* :s/^\(.*\)$/\/\* \1 \*\//<CR> <Esc>:nohlsearch<CR>
-map <leader>d :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR> <Esc>:nohlsearch<CR>
+map ,* :s/^\(.*\)$/\/\* \1 \*\//<CR> <Esc>:nohlsearch<CR>
+map ,d :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR> <Esc>:nohlsearch<CR>
+
+" to clear hlsearch -- hit ,h to clear highlighting from last search
+map ,h :nohlsearch <CR>
 
 " }}}
 "" 8.  Vim Tabs {{{
@@ -104,7 +127,6 @@ map <leader>k :tabr<cr>
 map <leader>j :tabl<cr>
 map <leader>h :tabp<cr>
 map <leader>l :tabn<cr>
-
 " }}}
 "" 9.  Functions {{{
 1
@@ -123,8 +145,6 @@ let b = expand("%:t")
 
 if b =~ '.*vimrc'
     colorscheme blue
-elseif b =~ '.*.sv'
-    colorscheme default
 else
     colorscheme molokai
 endif  
@@ -133,8 +153,9 @@ endif
 highlight error2 ctermbg=Red guibg=Red 
 autocmd BufEnter * syntax match error2 /[Ee][Rr][Rr][Oo][Rr]:/
 
-highlight warning2 ctermbg=Yellow ctermfg=Black guibg=Yellow guifg=Black                                                                                                                                                                                                   
+highlight warning2 ctermbg=Yellow ctermfg=Black guibg=Yellow guifg=Black
 autocmd BufEnter * syntax match warning2 /[Ww][Aa][Rr][Nn][Ii][Nn][Gg]:/
 " }}}
 
 "" vim:foldmethod=marker:foldlevel=0
+
